@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>case 2</title>
+
+    <style>
+        div{
+            width: 100px;
+            height: 50px;
+            background: yellow;
+            border: solid 2px black;
+        }
+
+        section{
+            margin: 10px;
+            margin-right: 40px;
+            margin-left: 40px;
+        }
+
+        .sSection{
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        .tSection{
+            display: flex;
+            justify-content: end;
+        }
+
+        hr{
+           margin-left:40px;
+            margin-right: 50px;
+        }
+
+        .buttons{
+            display: flex;
+            justify-content: center;
+        }
+
+        .buttons button{
+            width: 150px;
+            height: 50px;
+            align-content: center;
+            background: rgba(0, 255, 255, 0.45);
+            font-size: 1.4rem;
+        }
+
+    </style>
+
+
+</head>
+
+
+
+<body>
+
+<section class="fSection">
+    <div class="first"></div>
+</section>
+<hr>
+
+<section class="sSection">
+    <div class="second"></div>
+    <div class="third"></div>
+    <div class="fourth"></div>
+    <div class="fifth"></div>
+</section>
+<hr>
+<section class="tSection">
+    <div class="sixth"></div>
+</section>
+
+<section class="buttons">
+    <button class="button" id="btn_start">Start</button>
+    <button class="button" id="btn_stop">Stop</button>
+</section>
+
+
+<script src="../lib/jquery-3.7.1.min.js"></script>
+<script>
+  let color_array = ["pink","purple","red","green","blue","yellow"];
+  var myInterval;
+
+  function change(){
+      let color = color_array.pop();
+      color_array.unshift(color);
+      console.log(color);
+
+      $(".first").css("background-color", color_array[0]);
+      $(".second").css("background-color", color_array[1]);
+      $(".third").css("background-color", color_array[2]);
+      $(".fourth").css("background-color", color_array[3]);
+      $(".fifth").css("background-color", color_array[4]);
+      $(".sixth").css("background-color", color_array[5]);
+
+  }
+
+  document.getElementById("btn_start").addEventListener('click',function (){
+        myInterval = setInterval(change,1000)
+
+  });
+
+  document.getElementById("btn_stop").addEventListener('click',function (){
+        clearInterval(myInterval);
+
+  });
+
+
+
+</script>
+
+
+</body>
+</html>

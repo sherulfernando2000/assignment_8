@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS timers Assignment</title>
+
+    <style>
+
+        section{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        section>div{
+            width: 100px;
+            height: 200px;
+            background-color: white;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /*border: #2d595c 2px solid;*/
+        }
+
+        .box{
+            margin-top: 130px;
+        }
+
+        .walkingmanImg{
+            width: 80px;
+            height: 100px;
+            background-image: url("../assets/img2.gif");
+            background-size: cover;
+
+        }
+
+        .home{
+            width: 350px;
+            height: 300px;
+            background-image: url("../assets/home.png");
+            background-size: cover;
+            align-content: center;
+        }
+
+        .buttons{
+            display: flex;
+            justify-content: center;
+        }
+
+        .buttons button{
+            width: 150px;
+            height: 50px;
+            align-content: center;
+            background: rgba(0, 255, 255, 0.45);
+            font-size: 1.4rem;
+        }
+
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+<section>
+    <div class="box">
+        <div class="walkingmanImg"></div>
+        <h3 id="1">A</h3>
+
+    </div>
+    <div class="box">
+        <div class="walkingmanImg"></div>
+        <h3 id="2">B</h3>
+    </div>
+    <div class="box">
+        <div class="walkingmanImg"></div>
+        <h3 id="3">C</h3>
+    </div>
+    <div class="box">
+        <div class="walkingmanImg"></div>
+        <h3 id="4">D</h3>
+    </div>
+    <div class="box">
+        <div class="walkingmanImg"></div>
+        <h3 id="5">E</h3>
+    </div>
+    <div class="box">
+        <div class="walkingmanImg"></div>
+        <h3 id="6">F</h3>
+    </div>
+
+    <div class="home"></div>
+</section>
+
+
+<section class="buttons">
+    <button class="button" id="btn_start">Start</button>
+    <button class="button" id="btn_stop">Stop</button>
+</section>
+
+<script>
+    let arr = ["A","B","C","D","E","F"];
+    var myInterval;
+
+     function change(){
+        let lastLetter = arr.pop();
+        arr.unshift(lastLetter);
+        console.log(arr);
+        document.getElementById("1").innerText = arr[0];  // document.getElementsByTagName("h3")[0].innerText = arr[0];
+        document.getElementById("2").innerText = arr[1];
+        document.getElementById("3").innerText = arr[2];
+        document.getElementById("4").innerText = arr[3];
+        document.getElementById("5").innerText = arr[4];
+        document.getElementById("6").innerText = arr[5];
+
+    };
+
+    document.getElementById("btn_start").addEventListener('click', function (){
+       myInterval = setInterval(change,2000)
+    })
+
+    document.getElementById("btn_stop").addEventListener('click', function (){
+       clearInterval(myInterval);
+    })
+
+
+
+
+</script>
+
+
+</body>
+</html>
